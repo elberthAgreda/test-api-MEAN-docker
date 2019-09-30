@@ -1,13 +1,11 @@
 import {Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { User } from '../../models/user.model';
-import { UserService } from '../../../user/user.service';
 
 @Component({
   selector: 'app-modal-custom',
   templateUrl: './modal-custom.html',
-  styleUrls: ['./modal-custom.scss'],
-  providers: [UserService]
+  styleUrls: ['./modal-custom.scss']
 })
 
 export class ModalCustomComponent {
@@ -16,8 +14,7 @@ export class ModalCustomComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ModalCustomComponent>,
-    @Inject( MAT_DIALOG_DATA ) public data: any,
-    private userService: UserService ) { this.user = data.user; }
+    @Inject( MAT_DIALOG_DATA ) public data: any ) { this.user = data.user; }
 
 
   onNoClick(): void {
@@ -25,11 +22,7 @@ export class ModalCustomComponent {
   }
 
   editUser(): void {
-    this.userService.editUser(this.user).subscribe(
-      res => {
-        console.log(res);
-      }
-    );
+   // en espera
   }
 
 }
